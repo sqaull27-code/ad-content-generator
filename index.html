@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>광고 콘텐츠 생성기 - 블로그&인스타</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 헤더 -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>📝 광고 콘텐츠 생성기</h1>
+                <p>네이버 블로그 & 인스타그램 광고를 5분 안에 완성하세요!</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-help" onclick="showHelp()">❓ 도움말</button>
+                <button class="btn-history" onclick="showHistory()">📋 히스토리</button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- 탭 네비게이션 -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="quick">⚡ 빠른 생성</button>
+                <button class="tab-btn" data-tab="advanced">🎨 고급 설정</button>
+                <button class="tab-btn" data-tab="templates">📚 템플릿</button>
+            </div>
+
+            <!-- 빠른 생성 탭 -->
+            <div id="quick" class="tab-content active">
+                <section class="quick-section">
+                    <h2>🚀 3단계로 완성하기</h2>
+                    
+                    <!-- 스텝 1 -->
+                    <div class="step-card">
+                        <div class="step-number">1️⃣</div>
+                        <h3>상품 정보 입력</h3>
+                        <div class="form-group">
+                            <label>상품명 *</label>
+                            <input type="text" id="quickProductName" placeholder="예: 아이폰 15 Pro, 비타민 크림" class="input-focus">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>카테고리 *</label>
+                                <select id="quickCategory">
+                                    <option value="">선택하세요</option>
+                                    <option value="뷰티/스킨케어">뷰티/스킨케어</option>
+                                    <option value="패션/의류">패션/의류</option>
+                                    <option value="전자제품">전자제품</option>
+                                    <option value="식품/음료">식품/음료</option>
+                                    <option value="가구/인테리어">가구/인테리어</option>
+                                    <option value="운동/피트니스">운동/피트니스</option>
+                                    <option value="서비스">서비스</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>가격</label>
+                                <input type="text" id="quickPrice" placeholder="예: 49,900원">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 스텝 2 -->
+                    <div class="step-card">
+                        <div class="step-number">2️⃣</div>
+                        <h3>스타일 선택</h3>
+                        <div class="quick-tone-selector">
+                            <label class="tone-card active" data-tone="친근함">
+                                <input type="radio" name="quickTone" value="친근함" checked>
+                                <span class="tone-icon">😊</span>
+                                <span class="tone-label">친근함</span>
+                                <span class="tone-desc">공감하는 톤</span>
+                            </label>
+                            <label class="tone-card" data-tone="전문적">
+                                <input type="radio" name="quickTone" value="전문적">
+                                <span class="tone-icon">💼</span>
+                                <span class="tone-label">전문적</span>
+                                <span class="tone-desc">신뢰하는 톤</span>
+                            </label>
+                            <label class="tone-card" data-tone="유머러스">
+                                <input type="radio" name="quickTone" value="유머러스">
+                                <span class="tone-icon">😂</span>
+                                <span class="tone-label">유머러스</span>
+                                <span class="tone-desc">재미있는 톤</span>
+                            </label>
+                            <label class="tone-card" data-tone="고급스러움">
+                                <input type="radio" name="quickTone" value="고급스러움">
+                                <span class="tone-icon">💎</span>
+                                <span class="tone-label">고급스러움</span>
+                                <span class="tone-desc">프리미엄 톤</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 스텝 3 -->
+                    <div class="step-card">
+                        <div class="step-number">3️⃣</div>
+                        <h3>플랫폼 선택</h3>
+                        <div class="platform-quick-select">
+                            <label class="platform-checkbox">
+                                <input type="checkbox" id="quickNaver" checked>
+                                <span class="checkbox-visual"></span>
+                                <span class="platform-name">📖 블로그</span>
+                            </label>
+                            <label class="platform-checkbox">
+                                <input type="checkbox" id="quickInsta" checked>
+                                <span class="checkbox-visual"></span>
+                                <span class="platform-name">📸 인스타</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 생성 버튼 -->
+                    <button class="btn btn-large btn-primary" onclick="generateQuickContent()">✨ 지금 생성하기</button>
+                </section>
+            </div>
+
+            <!-- 고급 설정 탭 -->
+            <div id="advanced" class="tab-content">
+                <section class="advanced-section">
+                    <h2>🎨 세부 설정</h2>
+                    
+                    <div class="form-group">
+                        <label>상품 설명</label>
+                        <textarea id="advDescription" placeholder="상품의 특징, 장점, 기능 등을 자세히 설명해주세요" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>타겟 고객층</label>
+                        <select id="advTargetAudience">
+                            <option value="">선택하세요</option>
+                            <option value="20대 여성">20대 여성</option>
+                            <option value="30대 여성">30대 여성</option>
+                            <option value="20-30대 남성">20-30대 남성</option>
+                            <option value="직장인">직장인</option>
+                            <option value="주부">주부</option>
+                            <option value="학생">학생</option>
+                            <option value="전체">전체</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>블로그 형식 선택</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" class="advNaverFormat" value="후기" checked> 후기 형식</label>
+                            <label><input type="checkbox" class="advNaverFormat" value="정보"> 정보/팁 형식</label>
+                            <label><input type="checkbox" class="advNaverFormat" value="하이라이트"> 하이라이트</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>인스타 형식 선택</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" class="advInstaFormat" value="릴스" checked> 릴스 스크립트</label>
+                            <label><input type="checkbox" class="advInstaFormat" value="캐러셀"> 캐러셀 카드</label>
+                            <label><input type="checkbox" class="advInstaFormat" value="스토리"> 스토리 텍스트</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="generateAdvancedContent()">✨ 고급 생성</button>
+                </section>
+            </div>
+
+            <!-- 템플릿 탭 -->
+            <div id="templates" class="tab-content">
+                <section class="templates-section">
+                    <h2>📚 인기 템플릿</h2>
+                    <div class="template-grid">
+                        <div class="template-card" onclick="useTemplate('뷰티')">
+                            <div class="template-icon">💄</div>
+                            <h3>뷰티/스킨케어</h3>
+                            <p>피부 관리 상품 광고</p>
+                        </div>
+                        <div class="template-card" onclick="useTemplate('패션')">
+                            <div class="template-icon">👗</div>
+                            <h3>패션/의류</h3>
+                            <p>의류 및 액세서리</p>
+                        </div>
+                        <div class="template-card" onclick="useTemplate('전자제품')">
+                            <div class="template-icon">📱</div>
+                            <h3>전자제품</h3>
+                            <p>핸드폰, 이어폰 등</p>
+                        </div>
+                        <div class="template-card" onclick="useTemplate('식품')">
+                            <div class="template-icon">🍕</div>
+                            <h3>식품/음료</h3>
+                            <p>음식 및 음료 광고</p>
+                        </div>
+                        <div class="template-card" onclick="useTemplate('운동')">
+                            <div class="template-icon">💪</div>
+                            <h3>운동/피트니스</h3>
+                            <p>운동 기구 및 용품</p>
+                        </div>
+                        <div class="template-card" onclick="useTemplate('서비스')">
+                            <div class="template-icon">🎓</div>
+                            <h3>서비스</h3>
+                            <p>온라인 강좌, 컨설팅</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- 결과 섹션 -->
+        <section id="resultSection" class="result-section" style="display: none;">
+            <div class="result-header">
+                <h2>✨ 생성 완료!</h2>
+                <button class="btn-close" onclick="closeResult()">✕</button>
+            </div>
+            
+            <div class="result-content">
+                <div id="naverResult" class="result-box" style="display: none;">
+                    <div class="result-header-inner">
+                        <h3>📖 네이버 블로그</h3>
+                        <button class="btn-copy" onclick="copyToClipboard('naverResult')">📋 복사</button>
+                    </div>
+                    <div class="result-text"></div>
+                </div>
+
+                <div id="instaResult" class="result-box" style="display: none;">
+                    <div class="result-header-inner">
+                        <h3>📸 인스타그램</h3>
+                        <button class="btn-copy" onclick="copyToClipboard('instaResult')">📋 복사</button>
+                    </div>
+                    <div class="result-text"></div>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button class="btn btn-secondary" onclick="downloadContent()">⬇️ 다운로드</button>
+                <button class="btn btn-success" onclick="shareContent()">🔗 공유</button>
+                <button class="btn btn-primary" onclick="createNew()">✨ 새로 만들기</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 도움말 모달 -->
+    <div id="helpModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>❓ 사용 방법</h2>
+                <button class="btn-close" onclick="closeHelp()">✕</button>
+            </div>
+            <div class="modal-body">
+                <h3>🚀 3단계로 시작하세요</h3>
+                <ol>
+                    <li><strong>상품명과 카테고리 입력</strong> - 기본 정보만 있으면 됩니다</li>
+                    <li><strong>스타일 선택</strong> - 원하는 톤을 선택하세요</li>
+                    <li><strong>플랫폼 선택</strong> - 블로그, 인스타 또는 둘 다 선택</li>
+                </ol>
+                <h3>💡 팁</h3>
+                <ul>
+                    <li>상품 설명을 자세히 입력할수록 더 좋은 결과가 나옵니다</li>
+                    <li>여러 스타일을 시도해보세요</li>
+                    <li>고급 설정에서 더 많은 옵션을 사용할 수 있습니다</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 히스토리 모달 -->
+    <div id="historyModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📋 생성 히스토리</h2>
+                <button class="btn-close" onclick="closeHistory()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="historyList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
