@@ -12,7 +12,7 @@ body {
 }
 
 .app-container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     background: white;
     border-radius: 16px;
@@ -37,11 +37,10 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 40px 30px;
-    text-align: center;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .header-content {
@@ -81,7 +80,7 @@ body {
 
 /* 메인 */
 .app-main {
-    padding: 30px;
+    padding: 40px 30px;
 }
 
 /* 탭 */
@@ -90,7 +89,6 @@ body {
     gap: 10px;
     margin-bottom: 30px;
     border-bottom: 2px solid #e9ecef;
-    overflow-x: auto;
 }
 
 .tab-btn {
@@ -127,24 +125,64 @@ body {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* 폼 요소 */
+/* 빠른 생성 */
+.quick-intro {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 30px;
+}
+
+.quick-intro h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.quick-intro p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+.quick-form {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-desc {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 label {
@@ -156,13 +194,11 @@ label {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="number"],
 select,
 textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 2px solid #e9ecef;
+    border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1em;
     font-family: inherit;
@@ -177,38 +213,42 @@ textarea:focus {
     box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
-.input-focus {
-    border-color: #667eea !important;
+.input-large {
+    font-size: 1.05em;
+    padding: 14px 16px;
 }
 
-/* 스텝 카드 */
-.step-card {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    border-left: 4px solid #667eea;
-    position: relative;
+.select-large {
+    font-size: 1em;
+    padding: 12px 14px;
 }
 
-.step-number {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5em;
+.textarea-large {
+    padding: 14px 16px;
+    font-size: 0.95em;
+    resize: vertical;
 }
 
-.step-card h3 {
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 1.2em;
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #999;
+    font-size: 0.85em;
 }
 
 /* 톤 선택 */
-.quick-tone-selector {
+.tone-selector {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.tone-option {
+    cursor: pointer;
+}
+
+.tone-option input[type="radio"] {
+    display: none;
 }
 
 .tone-card {
@@ -216,116 +256,131 @@ textarea:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 20px;
     border: 2px solid #e9ecef;
     border-radius: 10px;
-    cursor: pointer;
+    text-align: center;
     transition: all 0.3s;
     background: white;
+    cursor: pointer;
 }
 
-.tone-card input[type="radio"] {
-    display: none;
-}
-
-.tone-card:hover {
+.tone-option:hover .tone-card {
     border-color: #667eea;
     background: #f8f9fa;
 }
 
-.tone-card.active,
-.tone-card input[type="radio"]:checked + .tone-icon ~ .tone-label {
+.tone-option input[type="radio"]:checked ~ .tone-card {
     border-color: #667eea;
     background: rgba(102, 126, 234, 0.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
 }
 
-.tone-icon {
-    font-size: 2em;
-    margin-bottom: 8px;
+.tone-emoji {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.tone-label {
+.tone-name {
     font-weight: 600;
     color: #333;
-    text-align: center;
-    margin-bottom: 4px;
+    font-size: 0.95em;
+    display: block;
+    margin-bottom: 6px;
 }
 
 .tone-desc {
-    font-size: 0.8em;
     color: #999;
-    text-align: center;
+    font-size: 0.8em;
+    display: block;
 }
 
-/* 플랫폼 체크박스 */
-.platform-quick-select {
-    display: flex;
+/* 플랫폼 선택 */
+.platform-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 15px;
 }
 
-.platform-checkbox {
-    display: flex;
-    align-items: center;
+.platform-option {
     cursor: pointer;
-    font-size: 1.05em;
-    font-weight: 500;
 }
 
-.platform-checkbox input[type="checkbox"] {
+.platform-option input[type="checkbox"] {
     display: none;
 }
 
-.checkbox-visual {
+.platform-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s;
+    background: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.platform-option:hover .platform-card {
+    border-color: #667eea;
+    background: #f8f9fa;
+}
+
+.platform-option input[type="checkbox"]:checked ~ .platform-card {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.platform-option input[type="checkbox"]:checked ~ .platform-card::before {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #667eea;
+    color: white;
     width: 24px;
     height: 24px;
-    border: 2px solid #e9ecef;
-    border-radius: 6px;
-    margin-right: 10px;
-    transition: all 0.3s;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 
-.platform-checkbox input[type="checkbox"]:checked ~ .checkbox-visual {
-    background: #667eea;
-    border-color: #667eea;
-}
-
-.platform-checkbox input[type="checkbox"]:checked ~ .checkbox-visual:after {
-    content: '✓';
-    color: white;
-    font-size: 0.8em;
+.platform-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .platform-name {
+    font-weight: 600;
     color: #333;
-}
-
-/* 체크박스 그룹 */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    cursor: pointer;
-    font-weight: normal;
     font-size: 0.95em;
+    display: block;
+    margin-bottom: 6px;
 }
 
-.checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-    cursor: pointer;
+.platform-desc {
+    color: #999;
+    font-size: 0.8em;
+    display: block;
 }
 
 /* 버튼 */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
 .btn {
     padding: 12px 24px;
     border: none;
@@ -352,10 +407,6 @@ textarea:focus {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
 }
 
 .btn-secondary {
@@ -387,6 +438,7 @@ textarea:focus {
     cursor: pointer;
     font-size: 0.85em;
     transition: all 0.3s;
+    font-weight: 600;
 }
 
 .btn-copy:hover {
@@ -394,35 +446,63 @@ textarea:focus {
     color: white;
 }
 
-.btn-close {
-    background: none;
-    border: none;
-    color: #999;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: color 0.3s;
+/* 예시 */
+.quick-examples {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
 }
 
-.btn-close:hover {
+.quick-examples h3 {
     color: #333;
+    margin-bottom: 20px;
 }
 
-/* 템플릿 그리드 */
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.example-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.example-header {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.example-content {
+    color: #666;
+    font-size: 0.85em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* 템플릿 */
 .template-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .template-card {
-    background: #f8f9fa;
-    padding: 20px;
+    background: white;
+    padding: 25px;
     border-radius: 12px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s;
-    border: 2px solid transparent;
+    border: 2px solid #e9ecef;
 }
 
 .template-card:hover {
@@ -432,13 +512,13 @@ textarea:focus {
 }
 
 .template-icon {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 3em;
+    margin-bottom: 12px;
 }
 
 .template-card h3 {
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-size: 0.95em;
 }
 
@@ -447,7 +527,7 @@ textarea:focus {
     font-size: 0.85em;
 }
 
-/* 결과 섹션 */
+/* 결과 */
 .result-section {
     background: #f8f9fa;
     padding: 30px;
@@ -461,8 +541,8 @@ textarea:focus {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
-    border-bottom: 2px solid #e9ecef;
     padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
 }
 
 .result-header h2 {
@@ -483,14 +563,14 @@ textarea:focus {
     border-left: 4px solid #667eea;
 }
 
-.result-header-inner {
+.result-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
 
-.result-header-inner h3 {
+.result-title h3 {
     color: #333;
     font-size: 1.1em;
 }
@@ -501,7 +581,7 @@ textarea:focus {
     border-radius: 8px;
     line-height: 1.8;
     color: #333;
-    max-height: 300px;
+    max-height: 350px;
     overflow-y: auto;
     white-space: pre-wrap;
     word-break: break-word;
@@ -560,6 +640,19 @@ textarea:focus {
     margin: 0;
 }
 
+.btn-close {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-close:hover {
+    color: #333;
+}
+
 .modal-body {
     padding: 20px;
 }
@@ -582,6 +675,29 @@ textarea:focus {
     margin-bottom: 8px;
 }
 
+/* 체크박스 그룹 */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.95em;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 /* 반응형 */
 @media (max-width: 768px) {
     .app-header {
@@ -593,25 +709,13 @@ textarea:focus {
         font-size: 1.8em;
     }
 
-    .app-main {
-        padding: 20px;
+    .tone-selector,
+    .platform-selector {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .form-row {
         grid-template-columns: 1fr;
-    }
-
-    .quick-tone-selector {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .tab-navigation {
-        gap: 5px;
-    }
-
-    .tab-btn {
-        padding: 10px 15px;
-        font-size: 0.9em;
     }
 
     .result-actions {
@@ -621,10 +725,6 @@ textarea:focus {
     .result-actions .btn {
         width: 100%;
     }
-
-    .template-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 480px) {
@@ -632,21 +732,13 @@ textarea:focus {
         font-size: 1.5em;
     }
 
-    .quick-tone-selector {
+    .tone-selector,
+    .platform-selector {
         grid-template-columns: 1fr;
-    }
-
-    .platform-quick-select {
-        flex-direction: column;
     }
 
     .template-grid {
         grid-template-columns: 1fr;
-    }
-
-    .tab-btn {
-        font-size: 0.8em;
-        padding: 8px 10px;
     }
 }
 
@@ -657,7 +749,6 @@ textarea:focus {
 
 .result-text::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 10px;
 }
 
 .result-text::-webkit-scrollbar-thumb {

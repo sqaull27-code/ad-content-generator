@@ -1,367 +1,401 @@
-// 콘텐츠 템플릿
+// 확장된 콘텐츠 템플릿
 const contentTemplates = {
     naver: {
         후기: {
-            친근함: (data) => `[${data.productName} 후기]
+            친근함: (data) => `[${data.productName} 솔직한 후기]
 
-안녕하세요! 오늘은 정말 좋은 상품을 발견했어서 소개해드려요! 🙌
-
-상품명: ${data.productName}
-카테고리: ${data.category}
-가격: ${data.price || '미정'}
-
-【 사용 후기 】
-${data.description || '정말 만족도 높은 제품입니다!'}
-
-【 추천 대상 】
-특히 ${data.targetAudience || '모든 사람'}에게 강력 추천합니다!
-
-【 결론 】
-이 상품 정말 후회 없는 구매가 될 거예요. 
-관심 있으신 분들은 꼭 확인해보세요! ✨
-
-#${data.productName} #후기 #추천 #${data.category}`,
-            
-            전문적: (data) => `[${data.productName} 상세 후기]
-
-안녕하세요. 오늘은 ${data.category} 분야의 화제 상품인 ${data.productName}을(를) 소개해드립니다.
+안녕하세요! 😊
+오늘은 저도 많이 사용하는 ${data.productName}을(를) 소개해드릴게요.
 
 【 상품 정보 】
-- 상품명: ${data.productName}
-- 카테고리: ${data.category}
-- 가격대: ${data.price || '미정'}
+• 상품명: ${data.productName}
+• 카테고리: ${data.category}
+• 가격: ${data.price || '미정'}
 
-【 상품 분석 】
-${data.description || '우수한 품질과 가성비를 갖춘 제품입니다.'}
-
-【 사용자층 】
-${data.targetAudience || '광범위한 사용자층'}에게 적합한 상품입니다.
-
-【 최종 평가 】
-종합적으로 이 상품은 해당 카테고리에서 주목할 만한 선택지입니다.
-상세 정보는 링크를 통해 확인하시기 바랍니다.
-
-#${data.productName} #${data.category} #상품평`,
-            
-            유머러스: (data) => `[${data.productName}, 이거 진짜 꿀!
-
-안녕, 나 오늘 진짜 좋은 거 찾았어! 🔥
-바로 ${data.productName}인데...
-
-『 상품 정보 』
-- 이름: ${data.productName}
-- 종류: ${data.category}
-- 가격: ${data.price || '아주 착함'}
-
-『 제 생각 』
-${data.description || '정말 강추! 안 사면 손해!'}
-
-『 누가 사면 좋을까? 』
-${data.targetAudience || '누구나 다'}
-
-『 한 줄 평 』
-존나 좋음. 끝.
-
-관심 있으면 링크 클릭! 👍
-
-#${data.productName} #강추 #꿀`,
-            
-            고급스러움: (data) => `[프리미엄 상품 리뷰 | ${data.productName}]
-
-≡ 품격 있는 선택의 기준
-
-${data.productName}
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-
-【 상품 개요 】
-${data.productName} | ${data.category}
-가격대: ${data.price || '프리미엄'}
-
-【 핵심 특징 】
-${data.description || '세련된 디자인과 우수한 기능성이 돋보입니다.'}
+【 사용 후 느낀 점 】
+정말 좋더라고요! 😍
+${data.description || '특별한 매력이 있는 제품입니다.'}
 
 【 추천 대상 】
-${data.targetAudience || '품격 있는 선택을 추구하는 분들'}
+${data.targetAudience || '모든 분'} 이라면 후회 없는 선택이 될 것 같아요!
 
 【 최종 평가 】
-진정한 가치를 아는 고객을 위한 선택입니다.
+⭐⭐⭐⭐⭐ 강력 추천합니다!
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+#${data.productName} #후기 #추천 #${data.category}`,
 
-자세히 알아보기 →
+            전문적: (data) => `[${data.productName} 상세 리뷰]
 
-#${data.productName} #프리미엄 #라이프스타일`
-        },
-        
-        정보: {
-            친근함: (data) => `[${data.productName} 사기 전에 알아야 할 것들!]
-
-안녕하세요! 오늘은 ${data.productName}에 대해 쉽고 재미있게 설명해드릴게요! 😊
-
-🎯 이 상품이 뭐예요?
-${data.description || '정말 좋은 상품입니다.'}
-
-💰 가격은 얼마?
-${data.price || '합리적인 가격대'}
-
-👥 누가 사면 좋아?
-${data.targetAudience || '모든 분들'}
-
-📌 구매 전 확인할 것들
-1️⃣ 다른 상품과 비교해보기
-2️⃣ 사용자 후기 읽어보기
-3️⃣ 반품 정책 확인하기
-4️⃣ 배송료 확인하기
-
-궁금한 점이 있으면 댓글로 물어봐주세요! 💕
-
-#${data.productName} #정보 #꿀팁`,
-            
-            전문적: (data) => `[${data.productName} 상품 가이드]
-
-【 상품 소개 】
-${data.productName}는 ${data.category} 분야의 주목할 만한 제품입니다.
+안녕하세요.
+오늘은 ${data.category} 분야의 ${data.productName}을(를) 소개해드리겠습니다.
 
 【 기본 정보 】
 • 상품명: ${data.productName}
 • 카테고리: ${data.category}
 • 가격대: ${data.price || '미정'}
 
-【 제품 설명 】
-${data.description || '우수한 기능성과 품질을 갖추고 있습니다.'}
+【 제품 분석 】
+${data.description || '우수한 품질과 기능성을 갖춘 제품입니다.'}
 
-【 대상 고객 】
-${data.targetAudience || '광범위한 사용자층'}
+【 사용 대상 】
+${data.targetAudience || '광범위한 사용자'} 에게 적합한 제품입니다.
 
 【 구매 가이드 】
-1. 제품 사양 확인
-2. 가격 비교
-3. 사용자 후기 검토
-4. 보증 및 A/S 정책 확인
-5. 구매 결정
+1. 다양한 옵션 확인하기
+2. 가격 비교하기
+3. 사용자 후기 참고하기
+4. 배송 및 반품 정책 확인하기
 
 【 결론 】
-이 상품은 충분히 고려할 가치가 있는 제품입니다.
+종합적으로 이 제품은 충분히 고려할 가치가 있습니다.
+자세한 정보는 링크를 통해 확인하세요.
 
-#${data.productName} #가이드 #정보`,
-            
+#${data.productName} #제품리뷰 #상세분석`,
+
+            유머러스: (data) => `[${data.productName}, 이거 진짜 꿀!]
+
+어? ${data.productName} 이거 봤어? 아직 안 봤다고?? 🔥
+
+【 상품 정보 】
+- 이름: ${data.productName}
+- 종류: ${data.category}
+- 가격: ${data.price || '착함'}
+
+【 내 생각 】
+${data.description || '정말 좋아! 진짜!'}
+정말 이거 사면 후회 없음. 100프로!
+
+【 누가 사면 좋을까? 】
+${data.targetAudience || '너'} (특히 너!!)
+
+【 한 줄 평 】
+존나 좋다. 끝.
+
+지금 당장 링크 클릭하고 사세요! 👍
+
+#${data.productName} #꿀 #강추 #당장사`,
+
+            고급스러움: (data) => `[프리미엄 라이프스타일 | ${data.productName}]
+
+≡ 품격 있는 선택
+
+${data.productName}
+
+이는 단순한 구매가 아닙니다.
+그것은 라이프스타일의 선택입니다.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【 핵심 가치 】
+${data.description || '세련된 디자인과 우수한 기능성'}
+
+【 투자 대상 】
+${data.category}
+가격대: ${data.price || '프리미엄'}
+
+【 추천 대상 】
+${data.targetAudience || '품질을 아는 분'}
+
+【 평가 】
+이 제품은 진정한 가치를 지니고 있습니다.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+더 자세한 정보를 원하신다면 링크를 확인하세요.
+
+#${data.productName} #프리미엄 #라이프스타일 #선택`
+        },
+
+        정보: {
+            친근함: (data) => `[${data.productName} 구매 가이드]
+
+안녕하세요! 👋
+오늘은 ${data.productName}을(를) 제대로 선택하는 방법을 알려드릴게요!
+
+【 상품 소개 】
+${data.productName}는 ${data.category} 상품으로, 많은 사람들이 찾는 제품입니다.
+
+【 주요 특징 】
+✓ ${data.description || '좋은 품질'}
+✓ 합리적인 가격
+✓ 신뢰할 수 있는 상품
+
+【 이런 분들에게 추천! 】
+📌 ${data.targetAudience || '모든 분'}
+
+【 구매 팁 】
+1️⃣ 여러 제품 비교하기
+2️⃣ 실제 사용자 후기 읽어보기
+3️⃣ 가격대 확인하기
+4️⃣ 배송 기간 확인하기
+5️⃣ 반품 정책 확인하기
+
+더 자세한 정보는 아래 링크에서 확인하세요! 😊
+
+#${data.productName} #가이드 #구매팁`,
+
+            전문적: (data) => `[${data.productName} 상품 분석]
+
+【 상품 개요 】
+상품명: ${data.productName}
+카테고리: ${data.category}
+가격대: ${data.price || '미정'}
+
+【 제품 분석 】
+${data.description || '다양한 기능을 갖춘 제품'}
+
+【 시장 평가 】
+현재 ${data.category} 시장에서 주목할 만한 제품입니다.
+
+【 사용자층 】
+주요 대상: ${data.targetAudience || '광범위한 사용층'}
+
+【 구매 의사결정 프로세스 】
+
+1단계: 필요성 분석
+ - 정말 필요한가?
+ - 대체 상품이 있는가?
+
+2단계: 기능 검토
+ - 주요 기능 확인
+ - 추가 기능 검토
+
+3단계: 가격 비교
+ - 최저가 확인
+ - 품질 대비 가격
+
+4단계: 후기 참고
+ - 실제 사용자 평가
+ - 장단점 파악
+
+5단계: 구매 결정
+ - 최종 확인
+ - 결제
+
+【 전문가 의견 】
+이 제품은 충분히 검토할 가치가 있는 옵션입니다.
+
+#${data.productName} #분석 #가이드`,
+
             유머러스: (data) => `[${data.productName} 이것만 알면 끝!]
 
-안녕, 여기는 쉽게 설명하는 곳이야! 🎉
+자, 이제 ${data.productName}에 대해 쉽게 설명해드릴게! 🎯
 
-❓ 뭐 하는 건데?
-→ ${data.description || '좋은 거 한다'}
+【 이게 뭐예요? 】
+${data.description || '좋은 거!'}
 
-❓ 얼마예요?
-→ ${data.price || '그냥 사'}
+【 얼마예요? 】
+${data.price || '착함'}
 
-❓ 누가 써?
-→ ${data.targetAudience || '너도 써!'}
+【 누가 사요? 】
+${data.targetAudience || '너도 나도'}
 
-❓ 뭐가 좋아?
-→ 다 좋아! 진짜!
+【 어디서 사요? 】
+링크 클릭하면 돼!
 
-⚡ 꿀팁 몇 개
-- 후기 읽고 사
-- 다른 거랑 비교해봐
-- 반품 되는지 확인해
-- 배송료 안 비싼지 봐
+【 장점 】
+✓ 좋다
+✓ 싸다
+✓ 받을 수 있다
 
-자, 이제 알겠지? 가서 사! 👋
+【 단점 】
+❌ 그만 사세요 (다 팔릴 수도)
 
-#${data.productName} #정보 #꿀팁`,
-            
-            고급스러움: (data) => `[전문가 상품 분석 | ${data.productName}]
+더 복잡하게 생각할 필요 없어! 그냥 사!
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+#${data.productName} #쌩이면 #언제사 #지금사`,
 
-【 시장 분석 】
+            고급스러움: (data) => `[전문가 가이드 | ${data.productName}]
 
-상품명: ${data.productName}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【 마켓 리포트 】
+
+상품: ${data.productName}
 분류: ${data.category}
-가격대: ${data.price || '프리미엄 대역'}
+시장가: ${data.price || '프리미엄 대역'}
 
 【 제품 평가 】
 
-${data.description || '현저히 우수한 품질을 갖춘 제품입니다.'}
+${data.description || '고급 기능과 우수한 품질'}
 
 【 타겟 분석 】
 
-주요 수요층: ${data.targetAudience || '고급 소비자층'}
+주요 사용층: ${data.targetAudience || '고객층'}
 
-【 구매 결정 프로세스 】
+【 구매 의사결정 매트릭스 】
 
-1단계: 시장 조사
-2단계: 제품 비교
-3단계: 가격 분석
-4단계: 리뷰 검토
-5단계: 최종 구매
+✓ 필요성: 높음
+✓ 품질: 우수
+✓ 가성비: 적절
+✓ 신뢰도: 높음
 
-【 전문가 평가 】
+【 최종 평가 】
 
-이 상품은 해당 카테고리에서
-높은 수준의 가치를 제공합니다.
+본 제품은 해당 카테고리에서
+고려할 가치 있는 선택지입니다.
 
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-#${data.productName} #분석 #리뷰`
+#${data.productName} #프로분석 #추천`
         },
-        
+
         하이라이트: {
-            친근함: (data) => `🌟 ${data.productName} 한눈에 보기!
+            친근함: (data) => `⭐ ${data.productName} 한눈에 보기!
 
 📦 상품: ${data.productName}
-🏷️ 카테고리: ${data.category}
-💳 가격: ${data.price || '합리적'}
+📂 카테고리: ${data.category}
+💰 가격: ${data.price || '확인해보세요!'}
 
-✨ 뭐가 좋은데?
-${data.description || '정말 좋은 상품이에요!'}
+✨ 좋은 점:
+${data.description || '품질 좋고 가격도 착함!'}
 
-😊 누가 추천해?
-${data.targetAudience || '모두'}
+👥 누가 추천해?
+${data.targetAudience || '모두!'}
+
+⭐⭐⭐⭐⭐ 5점 만점!
 
 👉 지금 확인해보세요!
 
-#${data.productName} #강추 #클릭`,
-            
-            전문적: (data) => `✨ ${data.productName} 핵심 정보
+#${data.productName} #추천 #강추`,
 
-⭐ 상품명: ${data.productName}
-📦 카테고리: ${data.category}
-💰 가격: ${data.price || '미정'}
+            전문적: (data) => `✨ ${data.productName} 정보 요약
 
-📌 주요 특징:
+📋 기본 정보
+상품: ${data.productName}
+분류: ${data.category}
+가격: ${data.price || '미정'}
+
+📌 주요 특징
 ${data.description || '우수한 품질의 제품'}
 
-👥 추천 대상:
+👥 추천 대상
 ${data.targetAudience || '전체'}
 
-🔗 자세히 보기: [링크]
+⭐⭐⭐⭐⭐ 높은 평가
+
+정보 보기 → [링크]
 
 #${data.productName} #정보 #추천`,
-            
+
             유머러스: (data) => `🔥 ${data.productName} 꼭 사세요!
 
 ✔️ 상품: ${data.productName}
 ✔️ 종류: ${data.category}
-✔️ 가격: ${data.price || '쌈'}
+✔️ 가격: ${data.price || '싼데'}
 
-💥 왜 좋은데?
-${data.description || '그냥 좋음'}
+왜 좋아?
+${data.description || '그냥 좋아!'}
 
-😎 누가 사?
-${data.targetAudience || '너'}
+너? 이거 사야 돼!
+${data.targetAudience || '누구나'}
 
 👍 지금 당장 클릭!
 
-#${data.productName} #강추`,
-            
-            고급스러움: (data) => `══════════════════════
+#${data.productName} #강추 #당장`,
+
+            고급스러움: (data) => `━━━━━━━━━━━━━━━━━━━━━
 💎 ${data.productName}
-══════════════════════
+━━━━━━━━━━━━━━━━━━━━━
 
 상품: ${data.productName}
 분류: ${data.category}
-가격: ${data.price || '프리미엄'}
+투자: ${data.price || '프리미엄'}
 
 특징:
-${data.description || '세련된 선택'}
+${data.description || '세련된 품질'}
 
 대상:
-${data.targetAudience || '고급 소비자'}
+${data.targetAudience || '고객'}
 
-══════════════════════
-더 알아보기 →
+━━━━━━━━━━━━━━━━━━━━━
 
-#${data.productName}`
+자세히 보기 →
+
+#${data.productName} #선택`
         }
     },
-    
+
     instagram: {
         릴스: {
             친근함: (data) => `[릴스 스크립트 - 친근함]
 
-0-3초) 안녕! 오늘 진짜 좋은 거 발견했어!
+🎬 0-3초) 안녕! 오늘 진짜 좋은 거 발견했어! 😍
 
-3-10초) 바로 ${data.productName}인데...
-${data.description || '정말 좋아!'}
+📱 3-10초) 바로 ${data.productName}인데...
+${data.description || '진짜 좋아!'}
 
-10-18초) 가격도 착하고 ${data.targetAudience || '모두'} 추천해!
+✨ 10-18초) 가격도 생각보다 착하고
+${data.targetAudience || '모두'} 추천할 수 있을 것 같아!
 
-18-25초) 지금 확인해봐! 댓글 달아! 구독해! 💕
+🙌 18-25초) 지금 확인해봐! 링크는 프로필에!
+구독하고 알림 켜! 💕
 
-#${data.productName} #강추 #꿀 #지금`,
-            
+#${data.productName} #강추 #후기 #추천`,
+
             전문적: (data) => `[릴스 스크립트 - 전문적]
 
-도입(0-3초)
-"안녕하세요! ${data.productName}을 소개합니다."
+📢 0-3초) 안녕하세요. 오늘 추천할 상품이 있습니다.
 
-본론(3-15초)
-${data.description || '높은 품질의 상품입니다.'}
-카테고리: ${data.category}
-가격대: ${data.price || '합리적'}
+🎯 3-10초) ${data.productName}
+${data.description || '높은 품질의 제품입니다.'}
 
-핵심(15-20초)
-${data.targetAudience || '모든 고객'} 추천 상품
+💼 10-18초) 카테고리: ${data.category}
+가격: ${data.price || '확인해주세요'}
 
-클로징(20-25초)
-자세한 정보는 프로필 링크를 확인하세요!
+🔗 18-25초) 더 자세한 정보는 링크에서 확인하세요.
 
-#${data.productName} #추천 #정보`,
-            
+#${data.productName} #정보 #추천 #리뷰`,
+
             유머러스: (data) => `[릴스 스크립트 - 유머러스]
 
-0-3초) 어? 이게 뭐야? 존나 좋은데?? 🔥
+🔥 0-3초) 어? 이거 봤어? 존나 좋은데??
 
-3-12초) ${data.productName}!
-${data.description || '진짜 개좋음!'}
+😂 3-10초) ${data.productName}!
+${data.description || '진짜 개꿀!'}
 
-12-20초) 가격? 쌈!! 🎉
-누가 사? ${data.targetAudience || '누구나'}}!
+💥 10-18초) 가격도 싸고
+${data.targetAudience || '누구나'}} 추천!
 
-20-25초) 지금 당장 사! 진짜! 안 사면 손해! 👍
+🎉 18-25초) 지금 사세요! 진짜!
+링크 클릭 → [프로필]
 
-#${data.productName} #꼭사세요 #강추`,
-            
+#${data.productName} #꿀 #강추 #지금사`,
+
             고급스러움: (data) => `[릴스 스크립트 - 고급스러움]
 
-오프닝(0-3초)
-"당신의 라이프스타일을 한 단계 업그레이드하세요."
+✨ 0-3초) 당신의 라이프스타일을 한 단계 업그레이드하세요.
 
-메인(3-15초)
-${data.productName}
-${data.description || '세련된 품질의 제품'}
-${data.category} | ${data.price || '프리미엄'}
+🎨 3-10초) ${data.productName}
+${data.description || '세련된 선택'}
 
-특징(15-20초)
-${data.targetAudience || '품격 있는 선택을 하는 분들'}을 위한 상품
+💎 10-18초) ${data.category}
+투자 가치: ${data.price || '프리미엄'}
 
-클로징(20-25초)
-프로필 링크에서 자세히 확인하세요.
+🌟 18-25초) ${data.targetAudience || '고객'}}을 위한 선택
+프로필 링크에서 확인하세요.
 
-#${data.productName} #프리미엄 #라이프스타일`
+#${data.productName} #프리미엄 #라이프스타일 #선택`
         },
-        
+
         캐러셀: {
             친근함: (data) => `[카드 1️⃣] 어? 이거 봤어?
-${data.productName}! 🌟
+${data.productName}! 😍
 
 [카드 2️⃣] 뭐 하는 건데?
 ${data.category}
 
 [카드 3️⃣] 가격은?
-${data.price || '착함'}
+${data.price || '착함!'}
 
 [카드 4️⃣] 뭐가 좋아?
 ${data.description || '다 좋아!'}
 
-[카드 5️⃣] 누가 사?
-${data.targetAudience || '너'}
+[카드 5️⃣] 누가 추천해?
+${data.targetAudience || '나도 너도'}
 
-지금 확인해! 💕`,
-            
+[카드 6️⃣] 지금 확인해! 💕`,
+
             전문적: (data) => `[카드 1️⃣] ${data.productName} 소개
 
 [카드 2️⃣] 카테고리
@@ -370,28 +404,31 @@ ${data.category}
 [카드 3️⃣] 가격
 ${data.price || '미정'}
 
-[카드 4️⃣] 주요 특징
-${data.description || '우수한 제품'}
+[카드 4️⃣] 특징
+${data.description || '우수한 품질'}
 
 [카드 5️⃣] 추천 대상
 ${data.targetAudience || '전체'}
 
-자세히 보기 →`,
-            
-            유머러스: (data) => `[카드 1️⃣] 헐!!! ${data.productName} 존나 좋음
+[카드 6️⃣] 자세히 보기`,
 
-[카드 2️⃣] 분류?
+            유머러스: (data) => `[카드 1️⃣] 헐!!! ${data.productName}
+존나 좋음
+
+[카드 2️⃣] 종류?
 ${data.category}
 
-[카드 3️⃣] 비용?
-${data.price || '쌈'}
+[카드 3️⃣] 가격?
+${data.price || '싼데'}
 
 [카드 4️⃣] 뭐 하는데?
-${data.description || '개좋음'}
+${data.description || '좋아!'}
 
 [카드 5️⃣] 지금 당장 사!
-👉 링크 클릭!`,
-            
+👉 링크
+
+[카드 6️⃣] 안 사면 손해!`,
+
             고급스러움: (data) => `[카드 1️⃣] 프리미엄
 ${data.productName}
 
@@ -402,50 +439,50 @@ ${data.category}
 ${data.price || '프리미엄'}
 
 [카드 4️⃣] 특징
-${data.description || '세련된 선택'}
+${data.description || '세련된 품질'}
 
 [카드 5️⃣] 대상
-${data.targetAudience || '고급 소비자'}
+${data.targetAudience || '고객'}
 
-자세히 보기 →`
+[카드 6️⃣] 자세히 보기`
         },
-        
+
         스토리: {
-            친근함: (data) => `[스토리 1️⃣]
-어? 이거 봤어?
+            친근함: (data) => `[스토리 1️⃣] 어? 이거 봤어?
 ${data.productName}! 😍
 
-[스토리 2️⃣]
+[스토리 2️⃣] 뭐예요?
 ${data.category}
 
-[스토리 3️⃣]
-${data.price || '합리적'}
+[스토리 3️⃣] 가격은?
+${data.price || '착함!'}
 
-[스토리 4️⃣]
-정말 좋아:
-${data.description || '강추!'}
+[스토리 4️⃣] 좋은 점?
+${data.description || '다 좋아!'}
 
-[스토리 5️⃣]
-지금 확인! 👉`,
-            
+[스토리 5️⃣] 추천!
+${data.targetAudience || '누구나'}
+
+[스토리 6️⃣] 프로필 링크 클릭! 💕`,
+
             전문적: (data) => `[스토리 1️⃣]
-${data.productName} 추천!
+${data.productName} 소개
 
 [스토리 2️⃣]
 카테고리: ${data.category}
-가격: ${data.price || '미정'}
 
 [스토리 3️⃣]
-특징:
-${data.description || '우수한 제품'}
+가격: ${data.price || '미정'}
 
 [스토리 4️⃣]
-대상: ${data.targetAudience || '전체'}
+특징: ${data.description || '우수함'}
 
 [스토리 5️⃣]
-지금 확인!
-링크 클릭`,
-            
+대상: ${data.targetAudience || '전체'}
+
+[스토리 6️⃣]
+자세히 보기 →`,
+
             유머러스: (data) => `[스토리 1️⃣]
 오 미 지
 ${data.productName}! 🔥
@@ -454,17 +491,20 @@ ${data.productName}! 🔥
 ${data.category}
 
 [스토리 3️⃣]
-${data.price || '쌈'}
+${data.price || '싼데'}
 
 [스토리 4️⃣]
 정말 좋음!
-${data.description || '개좋음'}
+${data.description || '개꿀!'}
 
 [스토리 5️⃣]
-지금 당장!`,
-            
+지금 당장!
+
+[스토리 6️⃣]
+링크 클릭!`,
+
             고급스러움: (data) => `[스토리 1️⃣]
-프리미엄 추천
+프리미엄 선택
 ${data.productName}
 
 [스토리 2️⃣]
@@ -474,9 +514,12 @@ ${data.category}
 투자: ${data.price || '프리미엄'}
 
 [스토리 4️⃣]
-${data.description || '세련된 선택'}
+${data.description || '세련된 품질'}
 
 [스토리 5️⃣]
+대상: ${data.targetAudience || '고객'}
+
+[스토리 6️⃣]
 자세히 보기`
         }
     }
@@ -485,20 +528,18 @@ ${data.description || '세련된 선택'}
 // DOM 요소
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
-const toneCards = document.querySelectorAll('.tone-card');
+const toneOptions = document.querySelectorAll('.tone-option');
 const resultSection = document.getElementById('resultSection');
 const helpModal = document.getElementById('helpModal');
 const historyModal = document.getElementById('historyModal');
 
-// 로컬스토리지 키
 const HISTORY_KEY = 'adContentHistory';
 
-// 탭 네비게이션
+// 탭 이벤트
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabName = btn.dataset.tab;
         
-        // 활성 탭 업데이트
         tabBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active'));
         
@@ -507,12 +548,12 @@ tabBtns.forEach(btn => {
     });
 });
 
-// 톤 카드 선택
-toneCards.forEach(card => {
-    card.addEventListener('click', () => {
-        toneCards.forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        card.querySelector('input[type="radio"]').checked = true;
+// 톤 옵션 클릭
+toneOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        toneOptions.forEach(o => o.classList.remove('active'));
+        option.classList.add('active');
+        option.querySelector('input[type="radio"]').checked = true;
     });
 });
 
@@ -521,6 +562,7 @@ function generateQuickContent() {
     const productName = document.getElementById('quickProductName').value.trim();
     const category = document.getElementById('quickCategory').value;
     const price = document.getElementById('quickPrice').value;
+    const description = document.getElementById('quickDescription').value;
     const tone = document.querySelector('input[name="quickTone"]:checked').value;
     const naver = document.getElementById('quickNaver').checked;
     const insta = document.getElementById('quickInsta').checked;
@@ -539,7 +581,7 @@ function generateQuickContent() {
         productName,
         category,
         price,
-        description: '',
+        description,
         targetAudience: ''
     };
 
@@ -591,14 +633,13 @@ function generateAndDisplay(data, tone, showNaver, showInsta, naverFormats, inst
     let naverHtml = '';
     let instaHtml = '';
 
-    // 네이버 콘텐츠
     if (showNaver) {
-        naverHtml = '<div style="margin-bottom: 20px;">';
+        naverHtml = '<div>';
         naverFormats.forEach(format => {
-            const template = contentTemplates.naver[format][tone];
+            const template = contentTemplates.naver[format]?.[tone];
             if (template) {
                 const content = template(data);
-                naverHtml += `<div style="margin-bottom: 15px;"><strong>[${format} 형식]</strong><br>${content.replace(/\n/g, '<br>')}</div>`;
+                naverHtml += `<div style="margin-bottom: 20px;"><strong>📖 ${format} 형식</strong><br>${content.replace(/\n/g, '<br>')}</div>`;
             }
         });
         naverHtml += '</div>';
@@ -609,14 +650,13 @@ function generateAndDisplay(data, tone, showNaver, showInsta, naverFormats, inst
         document.getElementById('naverResult').parentElement.style.display = 'none';
     }
 
-    // 인스타 콘텐츠
     if (showInsta) {
-        instaHtml = '<div style="margin-bottom: 20px;">';
+        instaHtml = '<div>';
         instaFormats.forEach(format => {
-            const template = contentTemplates.instagram[format][tone];
+            const template = contentTemplates.instagram[format]?.[tone];
             if (template) {
                 const content = template(data);
-                instaHtml += `<div style="margin-bottom: 15px;"><strong>[${format} 형식]</strong><br>${content.replace(/\n/g, '<br>')}</div>`;
+                instaHtml += `<div style="margin-bottom: 20px;"><strong>📸 ${format} 형식</strong><br>${content.replace(/\n/g, '<br>')}</div>`;
             }
         });
         instaHtml += '</div>';
@@ -627,19 +667,17 @@ function generateAndDisplay(data, tone, showNaver, showInsta, naverFormats, inst
         document.getElementById('instaResult').parentElement.style.display = 'none';
     }
 
-    // 히스토리 저장
     saveToHistory({
         productName: data.productName,
         tone: tone,
         timestamp: new Date().toLocaleString('ko-KR')
     });
 
-    // 결과 표시
     resultSection.style.display = 'block';
     resultSection.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 클립보드 복사
+// 복사
 function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
     const text = element.querySelector('.result-text').innerText;
@@ -695,6 +733,7 @@ function createNew() {
     document.getElementById('quickProductName').value = '';
     document.getElementById('quickCategory').value = '';
     document.getElementById('quickPrice').value = '';
+    document.getElementById('quickDescription').value = '';
     document.getElementById('advDescription').value = '';
     document.getElementById('advTargetAudience').value = '';
     resultSection.style.display = 'none';
@@ -705,6 +744,14 @@ function createNew() {
 // 결과 닫기
 function closeResult() {
     resultSection.style.display = 'none';
+}
+
+// 폼 초기화
+function resetQuickForm() {
+    document.getElementById('quickProductName').value = '';
+    document.getElementById('quickCategory').value = '';
+    document.getElementById('quickPrice').value = '';
+    document.getElementById('quickDescription').value = '';
 }
 
 // 도움말
@@ -752,12 +799,17 @@ function loadFromHistory(idx) {
     if (history[idx]) {
         document.getElementById('quickProductName').value = history[idx].productName;
         document.querySelector('input[name="quickTone"][value="' + history[idx].tone + '"]').checked = true;
+        
+        toneOptions.forEach(o => o.classList.remove('active'));
+        document.querySelector(`.tone-option[data-tone="${history[idx].tone}"]`).classList.add('active');
+        
         closeHistory();
         document.querySelector('.tab-btn[data-tab="quick"]').click();
+        document.getElementById('quickProductName').focus();
     }
 }
 
-// 모달 클릭 시 닫기
+// 모달 외부 클릭
 window.addEventListener('click', (e) => {
     if (e.target === helpModal) closeHelp();
     if (e.target === historyModal) closeHistory();
