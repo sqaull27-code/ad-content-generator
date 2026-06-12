@@ -12,7 +12,7 @@
         <header class="app-header">
             <div class="header-content">
                 <h1>📝 광고 콘텐츠 생성기</h1>
-                <p>네이버 블로그 & 인스타그램 광고를 5분 안에 완성하세요!</p>
+                <p>네이버 블로그 & 인스타그램 광고 콘텐츠를 5분 안에 완성하세요!</p>
             </div>
             <div class="header-actions">
                 <button class="btn-help" onclick="showHelp()">❓ 도움말</button>
@@ -36,7 +36,6 @@
                         <p>기본 정보만 입력하면 AI 수준의 광고 콘텐츠가 자동 생성됩니다!</p>
                     </div>
 
-                    <!-- 기본 정보 입력 -->
                     <div class="quick-form">
                         <div class="form-section">
                             <h3>📦 상품 정보</h3>
@@ -53,10 +52,10 @@
                                     <select id="quickCategory" class="select-large">
                                         <option value="">📂 선택하세요</option>
                                         <option value="뷰티/스킨케어">💄 뷰티/스킨케어</option>
-                                        <option value="패션/의류">👗 패션/의류</option>
+                                        <option value="패션/의류">👔 패션/의류</option>
                                         <option value="전자제품">📱 전자제품</option>
                                         <option value="식품/음료">🍕 식품/음료</option>
-                                        <option value="가구/인테리어">🛋️ 가구/인테리어</option>
+                                        <option value="가구/인테리어">🪑️ 가구/인테리어</option>
                                         <option value="운동/피트니스">💪 운동/피트니스</option>
                                         <option value="서비스">🎓 서비스</option>
                                         <option value="기타">📦 기타</option>
@@ -69,16 +68,31 @@
                             </div>
                         </div>
 
-                        <!-- 핵심 특징 -->
+                        <!-- 상품 설명 -->
                         <div class="form-section">
-                            <h3>✨ 핵심 특징 (선택)</h3>
-                            <textarea id="quickDescription" placeholder="상품의 가장 좋은 점 3가지를 짧게 적어주세요.&#10;예: 빠른 배송, 저렴한 가격, 높은 품질" rows="3" class="textarea-large"></textarea>
+                            <h3>✍️ 상품 설명 (상세할수록 좋습니다!)</h3>
+                            <textarea id="quickDescription" placeholder="상품의 가장 좋은 점 3가지를 적어주세요.&#10;예: 빠른 배송, 저렴한 가격, 높은 품질" rows="4" class="textarea-large"></textarea>
                             <small>비워둬도 됩니다. 입력하면 더 정확한 콘텐츠가 만들어집니다!</small>
+                        </div>
+
+                        <!-- 사진 업로드 -->
+                        <div class="form-section">
+                            <h3>📸 상품 사진 (선택)</h3>
+                            <div class="image-upload-area" onclick="document.getElementById('quickImage').click()">
+                                <input type="file" id="quickImage" accept="image/*" style="display:none;">
+                                <div class="upload-icon">🖼️</div>
+                                <p>여기를 클릭하거나 사진을 끌어다 놓으세요</p>
+                                <small>JPG, PNG, GIF (최대 5MB)</small>
+                                <div id="imagePreview" class="image-preview" style="display:none;">
+                                    <img id="previewImg" src="" alt="미리보기">
+                                    <button type="button" class="btn-remove-image" onclick="removeImage()">✕ 제거</button>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- 스타일 선택 -->
                         <div class="form-section">
-                            <h3>🎯 콘텐츠 스타일</h3>
+                            <h3>🎨 콘텐츠 스타일</h3>
                             <p class="section-desc">어떤 톤으로 광고할까요?</p>
                             
                             <div class="tone-selector">
@@ -164,13 +178,13 @@
                             <div class="example-card">
                                 <div class="example-header">📖 네이버 블로그</div>
                                 <div class="example-content">
-                                    "[아이폰 15 Pro 후기]\n안녕하세요! 오늘은 정말 좋은 상품을 소개해드리려고 합니다...\n빠른 배송, 저렴한 가격, 높은 품질을 갖춘 제품입니다!"
+                                    "[아이폰 15 Pro 솔직한 후기]\n\n안녕하세요! 😊\n오늘은 정말 좋은 상품을 소개해드리려고 합니다.\n\n【사용 후 느낀 점】\n정말 좋더라고요!...\n\n【추천 대상】\n특히 20-30대에게 강렬 추천합니다!\n\n【최종 평가】\n⭐⭐⭐⭐⭐ 강렬 추천합니다!"
                                 </div>
                             </div>
                             <div class="example-card">
                                 <div class="example-header">📸 인스타그램</div>
                                 <div class="example-content">
-                                    "[릴스 스크립트]\n0-3초) 안녕! 오늘 진짜 좋은 거 발견했어!\n3-15초) 아이폰 15 Pro인데...\n15-25초) 지금 확인해! 💕"
+                                    "[릴스 스크립트]\n\n0-3초) 안녕! 오늘 진짜 좋은 거 발견했어!\n\n3-10초) 바로 아이폰 15 Pro인데...\n정말 좋아!\n\n10-18초) 가격도 싸고 누구나 추천!\n\n18-25초) 지금 확인해! 링크는 프로필에! 💕"
                                 </div>
                             </div>
                         </div>
@@ -235,7 +249,7 @@
                             <p>피부 관리 상품 광고</p>
                         </div>
                         <div class="template-card" onclick="useTemplate('패션/의류')">
-                            <div class="template-icon">👗</div>
+                            <div class="template-icon">👔</div>
                             <h3>패션/의류</h3>
                             <p>의류 및 액세서리</p>
                         </div>
@@ -272,6 +286,12 @@
             </div>
             
             <div class="result-content">
+                <!-- 사진 표시 -->
+                <div id="resultImageSection" class="result-image-section" style="display: none;">
+                    <img id="resultImage" src="" alt="상품 사진">
+                </div>
+
+                <!-- 블로그 결과 -->
                 <div id="naverResult" class="result-box" style="display: none;">
                     <div class="result-title">
                         <h3>📖 네이버 블로그</h3>
@@ -280,6 +300,7 @@
                     <div class="result-text"></div>
                 </div>
 
+                <!-- 인스타 결과 -->
                 <div id="instaResult" class="result-box" style="display: none;">
                     <div class="result-title">
                         <h3>📸 인스타그램</h3>
@@ -314,6 +335,7 @@
                 <h3>💡 팁</h3>
                 <ul>
                     <li>상품 설명을 자세히 입력할수록 더 좋은 결과가 나옵니다</li>
+                    <li>사진을 업로드하면 시각적으로 더 좋은 광고가 됩니다</li>
                     <li>여러 스타일을 시도해보세요</li>
                     <li>고급 설정에서 더 많은 옵션을 사용할 수 있습니다</li>
                 </ul>
